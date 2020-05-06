@@ -31,7 +31,6 @@ class Kernel extends ConsoleKernel
             foreach($selesai as $s){
                 if(Carbon::now('Asia/Jakarta')>$s->wkt_selesai){
                     DB::table('sesi')->where('id',10)->update(['status' => 0]);
-                    
                 }
             }
         })->everyMinute();

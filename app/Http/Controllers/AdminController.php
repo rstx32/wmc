@@ -12,14 +12,8 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //return view('admin.index');
         $user = DB::table('users')->where('admin',0)->orderByDesc('skor')->get();
         $soal = DB::table('bank_soal')->get();
         $status = DB::table('sesi')->where('id',10)->get();
@@ -28,11 +22,6 @@ class AdminController extends Controller
     	return view('admin.index')->with(compact('user','soal','status','carbon'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $soal = DB::table('bank_soal')->get()->count();
@@ -42,24 +31,6 @@ class AdminController extends Controller
             return view('admin.tambahSoal');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $soal = DB::table('bank_soal')->where('id',$id)->get();
@@ -73,19 +44,7 @@ class AdminController extends Controller
             'jawaban' => $request->jawaban,
             'poin' => $request->poin,
         ]);
-        // alihkan halaman ke halaman pegawai
         return redirect('/admin#soal');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function store(Request $request){
