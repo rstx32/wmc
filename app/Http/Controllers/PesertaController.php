@@ -54,7 +54,10 @@ class PesertaController extends Controller
 			]);
 			return redirect('/peserta');
 		}else{
-			return view('peserta.salah', ['benar' => $jawabanBenar->jawaban], ['input' => $jawabanInput]);
+			return view('peserta.salah', 
+				['benar' => $jawabanBenar->jawaban],
+				['input' => $jawabanInput]
+			);
 		}
 	}
 }
