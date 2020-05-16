@@ -20,6 +20,7 @@
 @section('keterangan_user')
     Silahkan pergi ke tab <a href="#score">Daftar Soal</a> untuk mengatur soal untuk peserta<br />
     Dan lihat di <a href="#soal">Live Score</a> untuk mendapatkan informasi skor terupdate<br/>
+    Juga lihat di <a href="#sesi">Sesi</a> untuk mengatur sesi lomba<br/>
 @endsection
 @section('konten')
 <section id="score" class="wrapper style3 fade-up">
@@ -92,12 +93,7 @@
       <h2>Sesi</h2>
       <br/>
       <div class="container">
-      @foreach($status as $s)
-      <h3><i>Status Sesi : {{$s->status}}</i></h3>
-      <h3><i>Waktu Mulai : {{$s->wkt_mulai}}</i></h5>
-      <h3><i>Waktu Mulai : {{$s->wkt_selesai}}</i></h5>
-      <h3>Sisa Waktu : <p id="countdown"></p></h3>
-      @endforeach
+      @foreach($status as $s) 
           <form method="post" action="/admin/mulaiSesi">
             @csrf
             <div class="fields">
@@ -105,18 +101,56 @@
                 <table class="table score">
                   <tr>
                     <td>
+                      <h3>Status Sesi</i></h3>
+                    </td> 
+                    <td>
+                      {{$s->status}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Waktu Mulai</i></h3>
+                    </td> 
+                    <td>
+                      {{$s->wkt_mulai}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Waktu Selesai</i></h3>
+                    </td> 
+                    <td>
+                      {{$s->wkt_selesai}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Sisa Waktu</i></h3>
+                    </td> 
+                    <td>
+                      <p id="countdown"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <label for="name">Durasi Lomba (menit)</label>
                     </td>
                     <td>
                       <input type="text" name="durasi" id="durasi" />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
-                      <input type="submit" class="button submit" value="Mulai"/>
+                      <a href="/admin/hapusData" class="button">Hapus Semua Data</a></li>
+                    </td>
+                    <td>
+                      <input type="submit" class="button submit" value="Mulai Sesi"/>
                     </td>
                   </tr>
                 </table>
               </div>
           </form>
+        @endforeach
       </div>
     </div>
 </section>

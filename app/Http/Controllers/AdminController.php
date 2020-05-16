@@ -25,10 +25,7 @@ class AdminController extends Controller
     public function create()
     {
         $soal = DB::table('bank_soal')->get()->count();
-        if($soal>4)
-            return view('admin.soalPenuh');
-        else
-            return view('admin.tambahSoal');
+        return view('admin.tambahSoal');
     }
 
     public function edit($id)
@@ -73,19 +70,22 @@ class AdminController extends Controller
 		return $pdf->download('live-score-pdf');
     }
 
-    public function mulaiSesi(Request $request){
+    public function mulaiSesi(Request $request){ 
         DB::table('sesi')->where('id',10)->update([
             'wkt_mulai' => Carbon::now('Asia/Jakarta'),
             'wkt_selesai' => Carbon::now('Asia/Jakarta')->addMinutes($request->durasi),
             'status' => 1
         ]);
 
-        DB::table('users')->update([
-            'skor' => 0
-        ]);
+        DB::table('users')->update(['skor' => 0]);
 
+        return redirect('/admin');
+    }
+
+    public function hapusData(){
         DB::table('terjawab')->delete();
-
+        DB::table('users')->where('admin',0)->delete();
+        DB::table('bank_soal')->delete();
         return redirect('/admin');
     }
 }
