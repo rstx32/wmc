@@ -53,6 +53,6 @@ menambah user **admin**
 
 jalankan `php artisan db:seed`
 ## crontab
-edit file `crontab -e`
-tambahkan `* * * * * php /wmc/artisan schedule:run` di akhir baris
-save file `CTRL + X`
+ 1. edit file `crontab -e`
+ 2. tambahkan `* * * * * php /wmc/artisan schedule:run` di akhir baris
+ 3. save file `CTRL + X`
