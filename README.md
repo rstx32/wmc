@@ -52,7 +52,7 @@ menambah user **admin**
 |`admin@admin.com`|admin|
 
 jalankan `php artisan db:seed`
-## crontab
+## Crontab
  1. edit file `crontab -e`
  2. tambahkan `* * * * * php /wmc/artisan schedule:run` di akhir baris
  3. save file `CTRL + X`
