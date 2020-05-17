@@ -39,7 +39,7 @@
 ![enter image description here](https://lh3.googleusercontent.com/Vqs7OIrieMDZmLqDAmOuqyD7CP3QoiOxxJVo9V32GlNvgTnl6f2OyKuFyPVbhMF5391BjnkiZSMMItsk2S2MP4C5Dnt9QkFxbmCeZgQiB3N8IaWlPPeCbj6c90mljeiHnuZFDhPgqXhLmy7dPxmcaWP4DpVBN2okESJNnwsfzr370M5B9g9V3t_aZWQXtr05lzcZTAJDxq2t-iF3-v95rd3S432duvin9ePhz7pZZiWoYZtkSHKlbosbvtGFWsk0_0L8c5MsfwWVtFvzgDSDZ2bl-mFFew0kxWkAaHqwGPYE7L8vHRI-EojBAjsdR8A4SwG4CU-4JbfNS4utG7MmJre984RLLHOPlDDFlez2rnPAeAuaoZvdGYj87a6z4S0Be4rsbWK3N1ZnrSaw2dpbP_l30nObDrryovvEO0wXuZBtLM5MQVp0k_sRFh6M6TjkEux6v6G6oLQfmWt7R4YFJ_v-auQMTxCDExI1SiG6PNqp5TOM5ee1enI8hpNCh4m_m-vmmnKdNcwaxow_9BdwTEgB8OSU3XNsnNsa4pFJPIXEAQeN7NmsU0dUTgr8wPR53peH4E56m1dGG8sAcESXkUDUaNlyBIbUM9f9sim-zEOGRcp8qS_o9NfIdarfsExJUyohVTYjk2W1VP9Ac5D5diRdmXwsTOUZZCDLDiVNvTyuSpHG3N0jAuoq0FDE=w1360-h356-no?authuser=0)
 
 # Instalasi
-## install framework laravel
+## Install framework laravel
 Install laravel di [web laravel](https://laravel.com/docs/7.x#installing-laravel)
 ## Migrate 
 membuat tabel otomatis 
@@ -51,6 +51,8 @@ menambah user **admin**
 |--|--|
 |`admin@admin.com`|admin|
 
-jalankan
-
-    php artisan db:seed
+jalankan `php artisan db:seed`
+## crontab
+edit file `crontab -e`
+tambahkan `* * * * * php /wmc/artisan schedule:run` di akhir baris
+save file `CTRL + X`
